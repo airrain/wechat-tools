@@ -1,0 +1,9 @@
+<!--pages/sgs/index.wxml-->
+<view class="container">
+  <view>测测你是三国里的哪个人物</view>
+  <view>
+      <image src="../../images/sgs_front.jpg"></image>
+  </view>
+  <button bindtap="start" type="primary">测试</button>
+<text>pages/sgs/index.wxml</text>
+</view>
