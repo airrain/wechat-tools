@@ -1,2 +1,9 @@
 <!--pages/sgs/result.wxml-->
-<text>pages/sgs/result.wxml</text>
+<view class="result_container">
+  <view class="result_title">
+    你是三国里的{{result.name}}
+  </view>
+  <view>
+    <image src="{{result.image}}" mode="aspectFit"></image>
+  <text class="result_content">{{result.text}}</text>
+</view>
