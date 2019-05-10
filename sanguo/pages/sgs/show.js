@@ -7,62 +7,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    answers:{},
+    answer:{},
+    checked_0:false,
+    checked_1:false
   },
-
+//表单提交时间处理函数
+  formSubmit:function(e){
+    var nextId = e.detail.value.nextId;
+    if(nextId == ''){
+      return;
+    }
+    if(nextId.indexOf('result') != -1){
+      var results = nextId.split('_');
+      wx.navigateTo({
+        url:'../sgs/result?id='+results[1]
+      })
+    }
+    else{
+      this.setData({
+        checked_0:false,
+        checked_1:false,
+        answer:this.data.answers[nextId]
+      });
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
+    var ans = sgsdata.getAnswer();
+    this.setData({
+      answers:ans,
+      answer:ans[0]
+    });
+  }  
 })
