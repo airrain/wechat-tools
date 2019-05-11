@@ -1,9 +1,19 @@
 <!--pages/sgs/show.wxml-->
-<<view class="result_container">
-  <view class="result_title">
-    你是三国里的{{result.name}}
-  </view>
-  <view>
-    <image src="{{result.image}}" mode="aspectFit"></image>
-  <text class="result_content">{{result.text}}</text>
+<view class="show_container">
+  <view>{{answer.question}}</view>
+  <form bindsubmit="formSubmit">
+    <radio-group name="naxtId">
+      <label class="label_ans">
+        <radio value="{{answer['amswer'][0]['action']}}" 
+          name="{{answer['amswer'][0]['option']}}" checked="{{checked_0"/>
+        {{answer['answer'][0]['text']}}
+      </label>
+      <label class="label_ans">
+        <radio value="{{answer['amswer'][1]['action']}}" 
+          name="{{answer['amswer'][1]['option']}}" checked="{{checked_1"/>
+        {{answer['answer'][1]['text']}}
+      </label>
+      <radio-group>
+      <button formType="submit" type="primary" data-currentAns="{{answer.id}}">下一题</button>
+  </form>
 </view>
