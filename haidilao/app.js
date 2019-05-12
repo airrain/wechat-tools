@@ -1,25 +1,49 @@
 //app.js
+var common = require('./utils/common.js')
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
+  },
+  getUserInfo:function(cb){
+    var that = this
+    if(this.globalData.userInfo){
+      typeof cb == "function" && cb(this.globalData.userInfo)
+    }else{
     // 登录
     wx.login({
-      success: function(res) {
-          wx.getUserInfo({
-            success: function(res) {
-              console.log(res);
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+      success: function (res) {
+        wx.getUserInfo({
+          success: function (res) {
+            console.log(res);
+            // 可以将 res 发送给后台解码出 unionId
+            that.globalData.userInfo = res.userInfo
+            typeof cb == "function" && cb(that.globalData.userInfo)
+          }
+        })
+        if (res.code) {
+          console.log(res);
+          wx.request({
+            url: common.baseUrl + 'index.php/api/user/wxlogin',
+            data: {
+              code: res.code
+            },
+            sucess: function (res) {
+              that.globalData.opendid = res.data.openid
+              wx.setStorage({
+                key:"openid",
+                data:res.data.openid
+              })
 
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
             }
           })
+        }else{
+          console.log('获取用户登录状态失败！'+ res.errMsg)
         }
+      }
+    })
+  }
+},
+globalData:{
+  userInfo:null,
+  openid:null
+}
+})
