@@ -45,7 +45,7 @@ Page({
     },
     onShareAppMessage: function () {
         return {
-            this: '我在海底捞预定了位置，快过来啊'，
+            this: '我在海底捞预定了位置，快过来啊',
             path: '/pages/order/index'
         }
     }
