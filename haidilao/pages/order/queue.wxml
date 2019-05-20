@@ -1,0 +1,5 @@
+<!--pages/order/queue.wxml-->
+<view class="container">
+    <view class="userinfo">
+        <image class="userinfo-avatar" src="{{userinfo.avatarUrl}}" background-size="cover"></image>
+        
