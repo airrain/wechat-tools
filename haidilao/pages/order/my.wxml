@@ -1,0 +1,8 @@
+<!--pages/order/my.wxml-->
+<view class="container">
+    <view class="refresh">
+        <button type="primary" bindtap="reFresh">刷新最新进度</button>
+    <view class="section">
+           <view class="section__title bc_orange">我的排队号</view>
+             <view class="flex-wrp" style="flex-direction:row;">
+             </view>
