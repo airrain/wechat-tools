@@ -4,5 +4,18 @@
         <button type="primary" bindtap="reFresh">刷新最新进度</button>
     <view class="section">
            <view class="section__title bc_orange">我的排队号</view>
-             <view class="flex-wrp" style="flex-direction:row;">
-             </view>
+                <view class="flex-wrp" style="flex-direction:row;">
+                    <text class="flex-item">
+                    我的号码: <text class="red">{{queue.label}}</text>号\n
+                    排队列目：<text class="red">{{queue.description}}</text>桌
+                    </text>
+                </view>
+            </view><!--section-->
+                <view class="section">
+                    <view class="section_title bc_orange">当前进度</view>
+                    <view class="flex-wrp" style="flex-direction:row;">
+                        <text class="flex-item">
+                            当前轮到号：
+        
+             
+    </view>
