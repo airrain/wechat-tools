@@ -15,7 +15,20 @@
                     <view class="section_title bc_orange">当前进度</view>
                     <view class="flex-wrp" style="flex-direction:row;">
                         <text class="flex-item">
-                            当前轮到号：
+                            当前轮到号：<text class="red">{{queue.current_number}}</text>号\n
+                            <block wx:if="{{queue.ahead_count>0}}">
+                                在您前面还有 <text class="red">{{queue.ahead_count}}</text>位
+                            </block>
+                            <block wx:if="{{queue.ahead_count==0}}">
+                                <text class="red">正在叫您的号码，欢迎就餐</text>
+                            </block>
+                            <block wx:if="{{queue.ahead_count<0}}">
+                                <text class="red">您的号码已过期，请重新取号！</text>
+                            </block>
+                        </text>
+                    </view>
+                </view><!--section-->
+            </view><!--container-->
+
         
              
-    </view>
