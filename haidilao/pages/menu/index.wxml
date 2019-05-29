@@ -1,0 +1,6 @@
+<!--pages/menu/index.wxml-->
+<view class="container">
+    <view wx:for="{{menus}}" wx:key="id" class="section">
+        <view class="flex-wrp" style="flex-direction:row;">
+            <image style="width:500rpx;height:200rpx;background-color:#eeeeee;"
+            
