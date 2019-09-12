@@ -14,6 +14,6 @@
         {{answer['answer'][1]['text']}}
       </label>
       <radio-group>
-      <button formType="submit" type="primary" data-currentAns="{{answer.id}}">下一题</button>
+      <button formType="submit" type="primary" data-currentAns="{{answer.id}}">下一道题</button>
   </form>
 </view>
